@@ -2,38 +2,26 @@ config:
     renderer: markdown
 
 modules:
-  getting-started:
-    name: Getting Started
+  introduction:
+    name: Introduction (5 min)
   getting-started-che:
-    name: Getting Started
-  spring-boot:
-    name: Microservices with Spring Boot
-  spring-boot-che:
-    name: Microservices with Spring Boot
-  wildfly-swarm:
-    name: Enterprise Microservices with WildFly Swarm
-  wildfly-swarm-che:
-    name: Enterprise Microservices with WildFly Swarm
-  vertx:
-    name: Reactive Microservices with Eclipse Vert.x
-  vertx-che:
-    name: Reactive Microservices with Eclipse Vert.x
-  nodejs:
-    name: Web UI with Node.js and AngularJS
+    name: Getting Started (15 min)
+  create-catalog-che:
+    name: Create Catalog Service (35 min)
+  deploy-inventory:
+    name: Deploy Inventory Service (10 min)
+  deploy-gateway:
+    name: Deploy Gateway Service (5 min)
+  deploy-webui:
+    name: Deploy Web UI (5 min)
   health:
-    name: Monitoring Application Health 
-  fault-tolerance:
-    name: Service Resilience and Fault Tolerance
+    name: Monitoring Application Health (20 min)
   fault-tolerance-che:
-    name: Service Resilience and Fault Tolerance
+    name: Service Resilience and Fault Tolerance (45 min)
   app-config:
     name:  Application Configuration
-  continuous-delivery:
-    name:  Continuous Delivery
   continuous-delivery-che:
     name:  Continuous Delivery
-  debug:
-    name:  Debugging Applications
   debug-che:
     name:  Debugging Applications
   env-info:

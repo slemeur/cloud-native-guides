@@ -62,7 +62,7 @@ with the Catalog route url:
 ~~~shell
 $ curl http://{{CATALOG_ROUTE_HOST}}/health
 
-{"status":"UP","diskSpace":{"status":"UP","total":3209691136,"free":2667175936,"threshold":10485760},"db":{"status":"UP","database":"H2","hello":1}}
+{"status":"UP"}
 ~~~
 
 [WildFly Swarm health endpoints](https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/advanced/monitoring.html) function in a similar fashion and are enabled by adding `org.wildfly.swarm:monitor` 
@@ -78,12 +78,12 @@ with the Inventory route url:
 $ curl http://{{INVENTORY_ROUTE_HOST}}/node
 
 {
-    "name" : "localhost",
+    "name" : "inventory-1-v6d2l",
     "server-state" : "running",
     "suspend-state" : "RUNNING",
     "running-mode" : "NORMAL",
-    "uuid" : "79b3ffc5-d98c-4b8e-ae5c-9756ed13944a",
-    "swarm-version" : "2017.8.1"
+    "uuid" : "4d06da12-746e-47f6-a375-ae53613bf39d",
+    "swarm-version" : "7.1.0.redhat-77"
 }
 ~~~
 
@@ -155,7 +155,7 @@ the liveness probe.
 $ oc set probe dc/catalog --readiness --initial-delay-seconds=30 --failure-threshold=3 --get-url=http://:8080/health 
 ~~~
 
-Viola! OpenShift automatically restarts the Catalog pod and as soon as the 
+Voilà! OpenShift automatically restarts the Catalog pod and as soon as the 
 health probes succeed, it is ready to receive traffic. 
 
 > Fabric8 Maven Plugin can also be configured to automatically set the health probes when running `fabric8:deploy` 

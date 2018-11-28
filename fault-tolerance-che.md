@@ -129,7 +129,7 @@ Set the following resource constraints on the Web UI pod:
 > (E, P, T, G, M, K) or their power-of-two-equivalents (Ei, Pi, Ti, Gi, Mi, Ki).
 
 ~~~shell
-$ oc set resources dc/web --limits=cpu=400m,memory=512Mi --requests=cpu=200m,memory=256Mi
+$ oc set resources dc/web --limits=cpu=300m,memory=512Mi --requests=cpu=200m,memory=256Mi
 
 deploymentconfig "web" resource requirements updated
 ~~~
@@ -140,7 +140,7 @@ deploymentconfig "web" resource requirements updated
 
 The pods get restarted automatically setting the new resource limits in effect. Now you can define an 
 autoscaler using `oc autoscale` command to scale the Web UI pods up to 5 instances whenever 
-the CPU consumption passes 50% utilization:
+the CPU consumption passes 40% utilization:
 
 > You can configure an autoscaler using OpenShift Web Console by clicking 
 > on **Applications** >> **Deployments** within 
@@ -159,8 +159,9 @@ is a handy tool for running load tests against web endpoints and is already
 installed within your Eclipse Che workspace. 
 
 Run the following command in the **Terminal** window.
+
 ~~~shell
-$ siege -c80 -d2 -t5M http://web.coolstore-XX.svc.cluster.local:8080
+$ siege -c80 -d2 -t5M http://web.{{COOLSTORE_PROJECT}}.svc:8080
 ~~~
 
 Note that you are using the internal url of the Web UI in this command. Since Eclipse Che is running on 
@@ -434,7 +435,7 @@ archives (`jar`, `war`, etc) without the need to have access to the source code 
 the `jar` file form the Maven repository (e.g. Nexus or Artifactory).
 
 ~~~shell
-$ oc start-build gateway-s2i --from-file=labs/gateway-vertx/target/gateway-1.0-SNAPSHOT.jar
+$ oc start-build gateway-s2i --from-file={{LABS_HOME_DIR}}/gateway-vertx/target/gateway-1.0-SNAPSHOT.jar
 ~~~
 
 As soon as the new `gateway` container image is built, OpenShift deploys the new image automatically 

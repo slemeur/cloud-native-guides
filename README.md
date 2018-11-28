@@ -6,8 +6,9 @@ Agenda
 ===
 * Introduction to Cloud-Native apps
 * Building services with Spring Boot
-* Building Java EE services with WildFly Swarm
-* Building Reactive Services with Vert.x
+* Deploying Java EE services based on WildFly Swarm
+* Deploying Reactive Services based on Vert.x
+* Deploying Web UI based on Node.js
 * Monitoring Application Health
 * Fault Tolerance and Service Resilience
 * Configuration Management 
