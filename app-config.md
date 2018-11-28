@@ -13,11 +13,9 @@ page and some other times they are dependent on the environment they are deploye
 such as the database coordinates for the application.
 
 The most common way to provide configurations to applications is using environment 
-variables and external configuration files such as properties, JSON or YAML files.
-
-configuration files and command line arguments. These configuration artifacts
-should be externalized from the application and the docker image content in
-order to keep the image portable across environments.
+variables and external configuration files such as properties, JSON or YAML files. 
+These configuration artifacts should be externalized from the application and the 
+docker image content in order to keep the image portable across environments.
 
 OpenShift provides a mechanism called [ConfigMaps]({{OPENSHIFT_DOCS_BASE}}/dev_guide/configmaps.html) 
 in order to externalize configurations 
@@ -88,7 +86,15 @@ which you have already packaged within the Inventory Maven project.
 The YAML file can be packaged within the application JAR file and be overladed 
 [using command-line or system properties](https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/configuration/command_line.html) which you will do in this lab.
 
-> Check out `inventory-wildfly-swarm/src/main/resources/project-defaults.yml` which contains the default configuration.
+> Check out `inventory-wildfly-swarm/src/main/resources/project-defaults.yml` which contains the default configuration 
+
+Verify that the H2 database is currently used by the Inventory service. Check the Inventory pod logs:
+
+~~~shell
+$ oc logs dc/inventory | grep hibernate.dialect
+
+2017-08-10 16:30:12,237 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 16) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+~~~
 
 Create a YAML file with the PostgreSQL database credentials. Note that you can give an arbitrary 
 name to this configuration (e.g. `prod`) in order to tell WildFly Swarm which one to use:
@@ -137,7 +143,7 @@ Modify the Inventory deployment config so that it injects the YAML configuration
 a config map into the Inventory container:
 
 ~~~shell
-$ oc volume dc/inventory --add --configmap-name=inventory --mount-path=/app/config
+$ oc set volume dc/inventory --add --configmap-name=inventory --mount-path=/app/config
 ~~~
 
 The above command mounts the content of the `inventory` config map as a file inside the Inventory container 
@@ -183,7 +189,7 @@ Once connected to the PostgreSQL container, run the following:
 > Run this command inside the Inventory PostgreSQL container, after opening a remote shell to it.
 
 ~~~shell
-$ psql -U inventory -c "select * from inventory"
+sh-4.2$ psql -U inventory -c "select * from inventory"
 
  itemid | quantity
 ------------------
@@ -197,7 +203,7 @@ $ psql -U inventory -c "select * from inventory"
  444436 |       42
 (8 rows)
 
-$ exit
+sh-4.2$ exit
 ~~~
 
 You have now created a config map that holds the configuration content for Inventory and can be updated 
@@ -211,6 +217,14 @@ via a properties file called `application.properties` and can be
 [overriden and overlayed via multiple mechanisms](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html). 
 
 > Check out the default Spring Boot configuration in Catalog Maven project `catalog-spring-boot/src/main/resources/application.properties`.
+
+Verify that the H2 database is currently used by the Catalog service. Check the Catalog pod logs:
+
+~~~shell
+$ oc logs dc/catalog | grep hibernate.dialect
+
+2017-08-10 21:01:18.228  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+~~~
 
 In this lab, you will configure the Catalog service which is based on Spring Boot to override the default 
 configuration using an alternative `application.properties` backed by a config map.
@@ -275,7 +289,7 @@ used. Check the Catalog pod logs:
 ~~~shell
 $ oc logs dc/catalog | grep hibernate.dialect
 
-2017-08-10 21:07:51.670  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2017-08-10 21:07:51.670  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 ~~~
 
 You can also connect to the Catalog PostgreSQL database and verify that the seed data is loaded:
@@ -289,7 +303,7 @@ Once connected to the PostgreSQL container, run the following:
 > Run this command inside the Catalog PostgreSQL container, after opening a remote shell to it.
 
 ~~~shell
-$ psql -U catalog -c "select item_id, name, price from product"
+sh-4.2$ psql -U catalog -c "select item_id, name, price from product"
 
  item_id |            name             | price
 ----------------------------------------------
@@ -303,7 +317,7 @@ $ psql -U catalog -c "select item_id, name, price from product"
  444436  | Lytro Camera                |  44.3
 (8 rows)
 
-$ exit
+sh-4.2$ exit
 ~~~
 
 #### Sensitive Configuration Data

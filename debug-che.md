@@ -31,14 +31,6 @@ SEVERE: Inventory error for 444436: null
 Oh! Something seems to be wrong with the response the API Gateway has received from the 
 Inventory API for the product id `444436`. 
 
-Look into the Inventory pod logs to investigate further and see if you can find more  
-information about this bug:
-
-
-~~~shell
-$ oc logs dc/inventory | grep ERROR
-~~~
-
 There doesn't seem to be anything relevant to the `invalid response` error that the 
 API Gateway received either! 
 
@@ -76,7 +68,7 @@ An easier approach would be to use the fabric8 maven plugin to enable remote deb
 the Inventory pod. It also forwards the default remote debugging port, 5005, from the 
 Inventory pod to your workstation so simplify connectivity.
 
-Enable remote debugging on Inventory by running the following inside the `labs/inventory-wildfly-swarm` 
+Enable remote debugging on Inventory by running the following inside the `{{LABS_HOME_DIR}}/inventory-wildfly-swarm` 
 directory in the Eclipse Che **Terminal** window:
 
 ~~~shell
@@ -121,7 +113,7 @@ You should see a confirmation that the remote debugger is successfully connected
 
 ![Remote Debug]({% image_path debug-che-debug-config-4.png %}){:width="360px"}
 
-Open `com.redhat.cloudnative.inventory.InventoryResource` and double-click 
+Open `com.redhat.cloudnative.inventory.InventoryResource` and click once
 on the editor sidebar on the line number of the first line of the `getAvailability()` 
 method to add a breakpoint to that line. A start appears near the line to show a breakpoint 
 is set.

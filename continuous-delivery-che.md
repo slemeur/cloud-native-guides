@@ -65,7 +65,7 @@ the GitHub repository as the remote repository for your working copy.
 > Replace `GIT-REPO-URL` with the Git repository url copied in the previous steps
 
 ~~~shell
-$ cd labs/inventory-wildfly-swarm
+$ cd {{LABS_HOME_DIR}}/inventory-wildfly-swarm
 $ git init
 $ git remote add origin GIT-REPO-URL
 ~~~
@@ -85,7 +85,7 @@ Commit and push the existing code to the GitHub repository.
 ~~~shell
 $ git add . --all
 $ git commit -m "initial add"
-$ git push -u origin master
+$ git push origin master
 ~~~
 
 Enter your Git repository username and password if you get asked to enter your credentials. Go 
@@ -191,9 +191,9 @@ $ oc set triggers dc/inventory --manual
 Deploy a Jenkins server using the provided template and container image that 
 comes out-of-the-box with OpenShift:
 
-```
-oc new-app jenkins-ephemeral
-```
+~~~shell
+$ oc new-app jenkins-ephemeral
+~~~
 
 After Jenkins is deployed and is running (verify in web console), then create a 
 deployment pipeline by running the following command within the `inventory-widlfly-swarm` folder:

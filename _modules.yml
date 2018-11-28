@@ -19,10 +19,10 @@ modules:
   fault-tolerance-che:
     name: Service Resilience and Fault Tolerance (45 min)
   app-config:
-    name:  Application Configuration
+    name:  Application Configuration (20 min)
   continuous-delivery-che:
-    name:  Continuous Delivery
+    name:  Continuous Delivery (25 min)
   debug-che:
-    name:  Debugging Applications
+    name:  Debugging Applications (30 min)
   env-info:
     name: "Appendix: Lab Env Info"
