@@ -5,7 +5,7 @@ This workshop is a series of hands-on-labs which are designed to familiarize par
 and give them a taste of using OpenShift and OpenShift Application Runtimes (Spring Boot, Thorntail/WildFly Swarm, Vert.x, and Node.js)
 for building and managing cloud-native applications.
 
-Today you are going to create, deploy and debug a containerized polyglot microservices application called CoolStore (retail online shop).
+Today you are going to create, deploy, configure and debug a containerized polyglot microservices application called CoolStore (retail online shop).
 
 ![CoolStore Shop]({% image_path coolstore-web.png %}){:width="500px"}
 
@@ -27,11 +27,18 @@ Several individual microservices and infrastructure components make up the CoolS
     * Running in a [Node.js]({{ NODEJS_URL }}) container.
 
 
-![API Gateway Pattern]({% image_path coolstore-arch.png %}){:width="500px"}
+![Coolstore architecture]({% image_path coolstore-arch.png %}){:width="500px"}
 
 #### Why are you here?
-*"Your mission, should you choose to accept it"* is to implement the Catalog service,
-to deploy it as well as the Inventory service, the API Gateway service and the web user interface
-and to investigate bugs and issues using remote debugging technique.
+*"Your mission, should you choose to accept it"* is to
+
+1. implement and deploy the Catalog service,
+2. deploy the Inventory service, the API Gateway service and the web user interface,
+3. monitor application health and application resource consumption,
+4. build service resilience and fault-tolerant into the services,
+5. manage application configuration and provide environment specific configuration to the services,
+6. create a pipeline to automate build and deployment,
+7. investigate bugs and issues using remote debugging technique.
+
 As always should you or any member of the workshop need support or get questions, the facilitator team is here to help you.<br/>
-Don't worry! The instructions will not self-destruct in 5 seconds so **Good Luck!** And move on to the next lab.
+Don't worry! The instructions will not self-destruct in 5 seconds so **Good Luck!** and move on to the next lab.

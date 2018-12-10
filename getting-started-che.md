@@ -153,4 +153,12 @@ which will list all of the routes, services, deployments, and pods that you have
 running as part of your project. There's nothing there now, but that's about to
 change.
 
+Due to security reasons, by default, containers are not allowed to access to the OpenShift REST API. We need to grant them permission in order to use Service and Config Map discovery features later.
+
+> Make sure to replace the project name with your own unique project name
+
+~~~shell
+$ oc policy add-role-to-user view -n {{COOLSTORE_PROJECT}} -z default
+~~~ 
+
 Now you are ready to get started with the labs!

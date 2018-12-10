@@ -202,7 +202,7 @@ You are an expert in health probes by now! Add liveness and readiness probes to 
 $ oc set probe dc/gateway --liveness --readiness --initial-delay-seconds=15 --failure-threshold=3 --get-url=http://:8080/health
 ~~~
 
-OpenShift automatically restarts the Inventory pod and as soon as the health probes succeed, it is 
+OpenShift automatically restarts the API Gateway pod and as soon as the health probes succeed, it is 
 ready to receive traffic. 
 
 ####  Monitoring Web UI Health

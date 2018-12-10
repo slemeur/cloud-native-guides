@@ -55,7 +55,7 @@ $ oc new-app postgresql-persistent \
     --param=POSTGRESQL_DATABASE=inventory \
     --param=POSTGRESQL_USER=inventory \
     --param=POSTGRESQL_PASSWORD=inventory \
-    --labels=app=inventory
+    --labels=app=inventory,version=1.0-Database
 ~~~
 
 > The `--param` parameter provides a value for the template parameters. The recommended approach is 
@@ -71,7 +71,7 @@ $ oc new-app postgresql-persistent \
     --param=POSTGRESQL_DATABASE=catalog \
     --param=POSTGRESQL_USER=catalog \
     --param=POSTGRESQL_PASSWORD=catalog \
-    --labels=app=catalog
+    --labels=app=catalog,version=1.0-Database
 ~~~
 
 Now you can move on to configure the Inventory and Catalog service to use these PostgreSQL databases.
@@ -280,7 +280,7 @@ command:
 Delete the Catalog container to make it start again and look for the config maps:
 
 ~~~shell
-$ oc delete pod -l app=catalog
+$ oc delete pod -l app=catalog,deploymentconfig=catalog
 ~~~
 
 When the Catalog container is ready, verify that the PostgreSQL database is being 

@@ -52,14 +52,12 @@ OpenShift run with a `serviceaccount` (by default, the project `default` service
 be used to grant permissions for operations like accessing the OpenShift REST API. You can read 
 more about service accounts in the [OpenShift Documentation]({{OPENSHIFT_DOCS_BASE}}/dev_guide/service_accounts.html) and this 
 [blog post](https://blog.openshift.com/understanding-service-accounts-sccs/#_service_accounts)
+However you have done this already in previous labs and no need to grant permission again. 
 
-Grant permission to the API Gateway to be able to access OpenShift REST API and discover services.
-
-> Make sure to replace the project name with your own unique project name
-
-~~~shell
-$ oc policy add-role-to-user view -n {{COOLSTORE_PROJECT}} -z default
-~~~ 
+> For the record, you can grant permission to the default service account in your project using this 
+command: 
+> 
+>     $ oc policy add-role-to-user view -n {{COOLSTORE_PROJECT}} -z default
 
 OpenShift [Source-to-Image (S2I)]({{OPENSHIFT_DOCS_BASE}}/architecture/core_concepts/builds_and_image_streams.html#source-build) 
 feature can be used to build a container image from a git repository. OpenShift S2I uses the [supported OpenJDK container image](https://access.redhat.com/documentation/en-us/red_hat_jboss_middleware_for_openshift/3/html/red_hat_java_s2i_for_openshift) to build the final container image of the 
