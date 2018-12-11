@@ -6,10 +6,6 @@ We're going to save time by deploying the 'inventory' service instead of coding 
 
 ![CoolStore Architecture]({% image_path coolstore-arch-inventory.png %}){:width="400px"}
 
-#### Technology
-
-Our **'Inventory'** service has been implemented as a Java EE Microprofile application mainly using JAX-RS (REST) and JPA (persistency). Red Hat Openshift provides several runtimes to build services using Node.js, Java, C#, etc. Given that the service is implemented using Java EE Microprofile technology we're going to use  WildFly Swarm runtime. 
-
 #### What is WildFly Swarm?
 
 Java EE applications are traditionally created as an `ear` or `war` archive including all dependencies and deployed in an application server. Multiple Java EE applications can and were typically deployed in the same application server. This model is well understood in the development teams and has been used over the past several years.

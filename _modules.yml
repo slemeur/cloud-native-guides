@@ -7,13 +7,13 @@ modules:
   getting-started-che:
     name: Getting Started (15 min)
   create-catalog-che:
-    name: Create Catalog Service (35 min)
+    name: Creating Catalog Service (35 min)
   deploy-inventory:
-    name: Deploy Inventory Service (10 min)
+    name: Deploying Inventory Service (10 min)
   deploy-gateway:
-    name: Deploy Gateway Service (5 min)
+    name: Deploying Gateway Service (5 min)
   deploy-webui:
-    name: Deploy Web UI (5 min)
+    name: Deploying Web UI (5 min)
   health:
     name: Monitoring Application Health (20 min)
   fault-tolerance-che:
@@ -24,5 +24,7 @@ modules:
     name:  Continuous Delivery (25 min)
   debug-che:
     name:  Debugging Applications (30 min)
+  service-mesh:
+    name:  Service Mesh (Optional)
   env-info:
     name: "Appendix: Lab Env Info"
