@@ -20,7 +20,7 @@ Red Hat OpenShift Service Mesh is logically split into a data plane and a contro
 
 * The **control plane** is responsible for managing and configuring proxies to route traffic, and configuring Mixers to enforce policies and collect telemetry.
 
-![Istio Architecture]({% image_path istio_architecture.svg %}){:width="400px"}
+![Istio Architecture]({% image_path istio-architecture.png %}){:width="400px"}
 
 The components that make up the data plane and the control plane are:
 
