@@ -61,11 +61,12 @@ The database is configured using the Spring application configuration file which
 and note that an in-memory H2 database is used in this lab for local development and will be replaced
 with a PostgreSQL database in the following labs. Be patient! More on that later.
 
-You can use Maven to make sure the skeleton project builds successfully. You should get a **BUILD SUCCESS** message 
-in the build logs, otherwise the build has failed.
+You can use Maven to make sure the skeleton project builds successfully. 
 
 To build and deploy the **Catalog Service** on OpenShift using the *fabric8* maven plugin, 
 which is already configured in CodeReady Workspaces: `*right click on 'catalog-spring-boot'*` project in the project explorer then, `*click on 'Commands > Build > build'*`
+
+You should get a **BUILD SUCCESS** message in the build logs, otherwise the build has failed.
 
 image:{% image_path codeready-commands-build.png %}[Maven Build,600]
 
