@@ -65,9 +65,7 @@ You can use Maven to make sure the skeleton project builds successfully. You sho
 in the build logs, otherwise the build has failed.
 
 To build and deploy the **Catalog Service** on OpenShift using the *fabric8* maven plugin, 
-which is already configured in CodeReady Workspaces, 
-
-In CodeReady Workspaces, `*right click on 'catalog-spring-boot'*` project in the project explorer then, `*click on 'Commands > Build > build'*`
+which is already configured in CodeReady Workspaces: `*right click on 'catalog-spring-boot'*` project in the project explorer then, `*click on 'Commands > Build > build'*`
 
 image:{% image_path codeready-commands-build.png %}[Maven Build,600]
 
