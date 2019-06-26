@@ -287,6 +287,14 @@ then, `*click on 'Commands > Deploy > fabric8:deploy'*`
 
 image:{% image_path codeready-commands-deploy.png %}[Fabric8 Deploy,600]
 
+[NOTE]
+====
+If you have a failure during this step, make sure you are properly authenticate on OpenShift from your workspace:
+`$ oc login {{OPENSHIFT_CONSOLE_URL}}`
+and then on the right project:
+$ oc project {{COOLSTORE_PROJECT}}
+====
+
 [TIP]
 .fabric8:deploy
 ====
